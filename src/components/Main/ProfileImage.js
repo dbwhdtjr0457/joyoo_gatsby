@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { GatsbyImage } from "gatsby-plugin-image";
 
-const PROFILE_IMAGE_URL =
-  "https://avatars.githubusercontent.com/u/49023654?v=4";
-
-const ProfileImageWrapper = styled.img`
+const ProfileImageWrapper = styled(GatsbyImage)`
   width: 120px;
   height: 120px;
   margin-bottom: 30px;
@@ -16,8 +14,8 @@ const ProfileImageWrapper = styled.img`
   }
 `;
 
-const ProfileImage = function () {
-  return <ProfileImageWrapper src={PROFILE_IMAGE_URL} alt="profile image" />;
+const ProfileImage = function ({ profileImage }) {
+  return <ProfileImageWrapper image={profileImage} alt="profile" />;
 };
 
 export default ProfileImage;

@@ -22,12 +22,15 @@ const Container = styled.div`
 const indexPage = function ({
   data: {
     allMarkdownRemark: { edges },
+    file: {
+      childImageSharp: { gatsbyImageData },
+    },
   },
 }) {
   return (
     <Container>
       <GlobalStyle />
-      <Introduction />
+      <Introduction profileImage={gatsbyImageData} />
       <CategoryList selectedCategory="All" categoryList={CAGEGORY_LIST} />
       <PostList posts={edges} />
       <Footer />
@@ -49,10 +52,17 @@ export const getPostList = graphql`
             summary
             categories
             thumbnail {
-              publicURL
+              childImageSharp {
+                gatsbyImageData(width: 768, height: 400)
+              }
             }
           }
         }
+      }
+    }
+    file(name: { eq: "profile-image" }) {
+      childImageSharp {
+        gatsbyImageData(width: 120, height: 120)
       }
     }
   }

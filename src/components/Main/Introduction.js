@@ -43,11 +43,11 @@ const Title = styled.div`
   }
 `;
 
-const Introduction = function () {
+const Introduction = function ({ profileImage }) {
   return (
     <Background>
       <Wrapper>
-        <ProfileImage />
+        <ProfileImage profileImage={profileImage} />
         <div>
           <SubTitle>안녕하세요</SubTitle>
           <Title>joyoo의 미친 블로그입니다.</Title>
