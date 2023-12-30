@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { Link } from "gatsby";
 
-const PostItemWrapper = styled.div`
+const PostItemWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -77,14 +78,19 @@ const Summary = styled.div`
   opacity: 0.8;
 `;
 
-const PostItem = ({ title, date, categories, summary, thumbnail, link }) => {
+const PostItem = ({
+  title,
+  date,
+  categories,
+  summary,
+  thumbnail: { publicURL },
+  link,
+}) => {
   return (
-    <PostItemWrapper>
-      <ThumbnailImage src={thumbnail} alt="Post Item Image" />
+    <PostItemWrapper to={link}>
+      <ThumbnailImage src={publicURL} alt="Post Item Image" />
       <PostItemContent>
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          <Title>{title}</Title>
-        </a>
+        <Title>{title}</Title>
         <Date>{date}</Date>
         <Category>
           {categories.map((category, index) => (

@@ -32,7 +32,6 @@ const CategoryItem = styled(Link)`
 `;
 
 const CategoryList = function ({ selectedCategory, categoryList }) {
-  console.log(selectedCategory, categoryList);
   return (
     <CategoryListWrapper>
       {Object.entries(categoryList).map(([category, count]) => (
