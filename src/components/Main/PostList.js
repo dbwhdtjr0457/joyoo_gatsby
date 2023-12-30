@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import PostItem from "./PostItem";
 
@@ -18,24 +18,9 @@ const PostListWrapper = styled.div`
 `;
 
 const PostList = ({ selectedCategory, posts }) => {
-  const postListData = useMemo(
-    () =>
-      posts.filter(
-        ({
-          node: {
-            frontmatter: { categories },
-          },
-        }) =>
-          selectedCategory !== "All"
-            ? categories.includes(selectedCategory)
-            : true
-      ),
-    [selectedCategory, posts]
-  );
-
   return (
     <PostListWrapper>
-      {postListData.map(({ node }) => {
+      {posts.map(({ node }) => {
         const { id, frontmatter } = node;
         return (
           <PostItem key={id} {...frontmatter} link="https://www.google.com" />
