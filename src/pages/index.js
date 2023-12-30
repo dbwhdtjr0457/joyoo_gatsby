@@ -3,7 +3,8 @@ import styled from "@emotion/styled";
 import GlobalStyle from "../components/Common/GlobalStyle";
 import Introduction from "../components/Main/Introduction";
 import Footer from "../components/Common/Footer";
-import CategoryList from "../components/Main/Categorylist";
+import CategoryList from "../components/Main/CategoryList";
+import PostList from "../components/Main/PostList";
 
 const CAGEGORY_LIST = {
   All: 5,
@@ -23,6 +24,7 @@ const indexPage = function () {
       <GlobalStyle />
       <Introduction />
       <CategoryList selectedCategory="All" categoryList={CAGEGORY_LIST} />
+      <PostList />
       <Footer />
     </Container>
   );
